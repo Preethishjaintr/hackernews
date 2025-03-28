@@ -16,7 +16,7 @@ export const signUpWithUsernameAndPassword = async (parameters: {
 }): Promise<SignUpWithUsernameAndPasswordResult> => {
   // Check if user already exists
   const isUserExistingAlready = await checkIfUserExistsAlready({
-    username: parameters.username,
+    username: parameters.username, // Use the correct unique field from your Prisma schema
   });
 
   if (isUserExistingAlready) {
@@ -31,16 +31,16 @@ export const signUpWithUsernameAndPassword = async (parameters: {
   // Create new user
   const user = await prismaClient.user.create({
     data: {
-      username: parameters.username,
+      username: parameters.username, // Replace 'username' with the correct field name from your Prisma schema
       password: passwordHash,
-      name: parameters.name,
+      name: parameters.name ?? "",
     },
   });
 
   // Generate JWT token
   const token = createJWToken({
     id: user.id,
-    username: user.username,
+    username: parameters.username,
   });
 
   return {

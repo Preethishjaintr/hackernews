@@ -1,7 +1,7 @@
 import { Hono } from "hono";
-import { tokenMiddleware } from "./middlewares/token-middleware";
-import { createPost, deletePost, getAllPosts, getMyPosts } from "../controllers/posts/posts-controller";
-import { PostError } from "../controllers/posts/posts-types";
+import { tokenMiddleware } from "./middlewares/token-middlewrae";
+import { createPost, deletePost, getAllPosts, getMyPosts } from "../controller/posts/posts-controller";
+import { PostError } from "../controller/posts/posts-types";
 
 export const postsRoutes = new Hono();
 

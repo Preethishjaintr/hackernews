@@ -1,7 +1,7 @@
 import { Hono } from "hono";
-import { tokenMiddleware } from "./middlewares/token-middleware";
-import { createLike, deleteLike, getLikes } from "../controllers/likes/likes-controller";
-import { LikeError } from "../controllers/likes/likes-types";
+import { tokenMiddleware } from "./middlewares/token-middlewrae";
+import { createLike, deleteLike, getLikes } from "../controller/likes/likes-controller";
+import { LikeError } from "../controller/likes/likes-types";
 
 export const likesRoutes = new Hono();
 
